@@ -171,7 +171,12 @@ class UserController extends Controller
         //     dd($user->wasChanged(['nama','username'])); //true  
 
         #js4 prak 2.6
-        $user = UserModel::all();
+        // $user = UserModel::all();
+        // return view('user', ['data' => $user]);
+
+        #js4 prak 2.7
+        $user = UserModel::with('level')->get();
+        // dd($user);
         return view('user', ['data' => $user]);
     }
 
