@@ -40,6 +40,9 @@ Route::group(['prefix' => 'user'], function () {
 
     Route::put('/{id}',[UserController::class, 'update']);
     Route::delete('/{id}',[UserController::class, 'destroy']);
+
+    Route::get('/{id}/delete_ajax',[UserController::class, 'confirm_ajax']);
+    Route::delete('/{id}/delete_ajax',[UserController::class, 'delete_ajax']);
 });
 
 Route::group(['prefix' => 'level'], function () {
