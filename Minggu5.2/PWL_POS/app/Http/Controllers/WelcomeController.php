@@ -8,9 +8,9 @@ class WelcomeController extends Controller
 {
     public function index()
     {
-        $breadcrumb = (object) [
+        $breadcrumb = [
             'title' => 'Selamat Datang',
-            'list' => ['Home', 'Welcome']
+            'list' => ['Home', 'Welcome'],
         ];
 
         $activeMenu = 'dashboard';
