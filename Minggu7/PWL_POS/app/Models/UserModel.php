@@ -23,12 +23,19 @@ class UserModel extends Authenticatable
     {
         return $this->belongsTo(LevelModel::class, 'level_id', 'level_id');
     }
-    // menadpapatkan role name
-    public function getRoleName(){
-        return $this->level->level_name;
+     /**
+     * Mendapatkan nama role
+     */
+    public function getRoleName(): string
+    {
+        return $this->level->level_nama;
     }
-    // cek apakah user memiliki role tertentu
-    public function hasRoleName($role): bool {
-        return $this->level->level_name == $role;
+
+    /**
+     * Cek apakah user memiliki role tertentu
+     */
+    public function hasRole($role): bool
+    {
+        return $this->level->level_kode == $role;
     }
 }
