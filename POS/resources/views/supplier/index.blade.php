@@ -38,7 +38,7 @@
     <div id="myModal" class="modal fade animate shake" tabindex="-1" data-backdrop="static" data-keyboard="false" data-width="75%"></div>
 @endsection 
 
-@push('js')
+@push('scripts')
     <script>
         function modalAction(url = '') {
             $('#myModal').load(url, function() {
