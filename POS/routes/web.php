@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/import_ajax', [BarangController::class, 'import_ajax']);
             Route::get('/export_excel', [BarangController::class, 'export_excel']);
             Route::get('/export_pdf', [BarangController::class, 'export_pdf']);
+            Route::get('/stock', [BarangController::class, 'getStock'])->name('barang.stock');
         });
         
         Route::group(['prefix' => 'user'], function () {

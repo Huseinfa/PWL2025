@@ -12,7 +12,6 @@
             </div>
         </div>
         <div class="card-body">
-            <!-- untuk Filter data -->
             <div id="filter" class="form-horizontal filter-date p-2 border-bottom mb-2">
                 <div class="row">
                     <div class="col-md-12">
@@ -48,6 +47,7 @@
                         <th>Nama Barang</th>
                         <th>Harga Beli</th>
                         <th>Harga Jual</th>
+                        <th>Stok</th>
                         <th>Kategori</th>
                         <th>Aksi</th>
                     </tr>
@@ -67,6 +67,7 @@
                 $('#myModal').modal('show');
             });
         }
+
         var tableBarang;
         $(document).ready(function() {
             tableBarang = $('#table-barang').DataTable({
@@ -98,7 +99,7 @@
                     {
                         data: "barang_nama",
                         className: "",
-                        width: "37%",
+                        width: "30%",
                         orderable: true,
                         searchable: true
                     },
@@ -123,16 +124,23 @@
                         }
                     },
                     {
+                        data: "stok",
+                        className: "",
+                        width: "10%",
+                        orderable: true,
+                        searchable: false
+                    },
+                    {
                         data: "kategori.kategori_nama",
                         className: "",
-                        width: "14%",
+                        width: "10%",
                         orderable: true,
                         searchable: false
                     },
                     {
                         data: "aksi",
                         className: "text-center",
-                        width: "14%",
+                        width: "15%",
                         orderable: false,
                         searchable: false
                     }
@@ -140,7 +148,7 @@
             });
 
             $('#table-barang_filter input').unbind().bind().on('keyup', function(e) {
-                if (e.keyCode == 13) { // enter key
+                if (e.keyCode == 13) {
                     tableBarang.search(this.value).draw();
                 }
             });
@@ -148,6 +156,10 @@
             $('.filter_kategori').change(function() {
                 tableBarang.draw();
             });
+
+            setInterval(function() {
+                tableBarang.ajax.reload(null, false);
+            }, 10000);
         });
     </script>
 @endpush

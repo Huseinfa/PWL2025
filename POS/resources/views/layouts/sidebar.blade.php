@@ -58,12 +58,6 @@
                 </a>
             </li>
             <li class="nav-header">Data Transaksi</li>
-            <li class="nav-item">
-                <a href="{{ url('/stok') }}" class="nav-link {{ ($activeMenu == 'stok')? 'active' : '' }}">
-                    <i class="nav-icon fas fa-cubes"></i>
-                    <p>Stok Barang</p>
-                </a>
-            </li>
             <li class="nav-item {{ ($activeMenu == 'transactions') ? 'menu-open' : '' }}">
               <a href="#" class="nav-link {{ ($activeMenu == 'transactions') ? 'active' : '' }}">
                   <i class="nav-icon fas fa-cash-register"></i>
@@ -90,7 +84,10 @@
           </li>
             <li class="nav-item fixed-bottom mx-2">
                 <a href="{{ url('/user/profile') }}" class="nav-link {{ ($activeMenu == 'profile')? 'active' : '' }} ">
-                    <i class="nav-icon fas fa-user-circle"></i>
+                    <img src="{{ auth()->user()->user_profile_picture ? asset('storage/'.auth()->user()->user_profile_picture) : asset('storage/profiles/profile_default.png') }}" 
+                class="img-circle elevation-2 mr-2" 
+                alt="User Image" 
+                style="width: 30px; height: 30px; object-fit: cover;">
                     <p> User Profile</p>
                 </a>
             </li>

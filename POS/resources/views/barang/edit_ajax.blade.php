@@ -4,7 +4,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Kesalahan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
@@ -26,7 +26,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit Data Barang</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true">×</span>
                     </button>
                 </div>
 
@@ -67,6 +67,12 @@
                         <input value="{{ $barang->harga_jual }}" type="text" name="harga_jual" id="harga_jual" class="form-control" required>
                         <small id="error-harga_jual" class="error-text form-text text-danger"></small>
                     </div>
+
+                    <div class="form-group">
+                        <label>Stok</label>
+                        <input value="{{ $barang->stok }}" type="number" name="stok" id="stok" class="form-control" min="0" required>
+                        <small id="error-stok" class="error-text form-text text-danger"></small>
+                    </div>
                 </div>
 
                 <div class="modal-footer">
@@ -85,7 +91,8 @@
                     barang_kode: {required: true, minlength: 3},
                     barang_nama: {required: true, maxlength: 100},
                     harga_beli: {required: true, minlength: 4},
-                    harga_jual: {required: true, minlength: 4}
+                    harga_jual: {required: true, minlength: 4},
+                    stok: {required: true, number: true, min: 0} // Add validation rules for stok
                 },
                 submitHandler: function(form) {
                     $.ajax({

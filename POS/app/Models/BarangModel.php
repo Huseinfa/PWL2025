@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\KategoriModel;
 
 
-class Barang extends Model
+class BarangModel extends Model
 {
     use HasFactory;
 
